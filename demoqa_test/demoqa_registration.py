@@ -4,6 +4,7 @@ import os
 
 def test_demo_registration(browser_config):
     browser.open('automation-practice-form')
+    browser.element('footer').execute_script('element.remove()')
     browser.element('#firstName').type('Maria')
     browser.element('#lastName').type('Ivanova')
     browser.element('#userEmail').type('MIvanova@gmail.com')
@@ -20,7 +21,8 @@ def test_demo_registration(browser_config):
     browser.element('[for="hobbies-checkbox-1"]').click()
     browser.element('#uploadPicture').send_keys(os.getcwd() + '/image.jpg')
     browser.element('#react-select-3-input').should(be.blank).type('Haryana').press_enter()
-    browser.element('#react-select-4-input').should(be.blank).type('Karnal').press_enter().press_enter()
+    browser.element('#react-select-4-input').should(be.blank).type('Karnal').press_enter()
+    browser.element('#submit').click()
 
     browser.element('#example-modal-sizes-title-lg').should(have.exact_text('Thanks for submitting the form'))
     browser.element('//tbody/tr[1]/td[2]').should(have.text('Maria Ivanova'))
