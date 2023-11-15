@@ -1,6 +1,6 @@
 # from distutils.command.config import config
 
-#from selene.support import config
+#from selene.support.shared import config
 
 import pytest
 from selene import browser
@@ -10,5 +10,5 @@ from selene import browser
 def browser_config():
     browser.config.window_height = 700
     browser.config.window_width = 660
-    browser.config.base_url = 'https://demoqa.com'
+    browser.config.base_url = 'https://demoqa.com/'
     return browser
